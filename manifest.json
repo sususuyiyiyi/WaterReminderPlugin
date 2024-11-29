@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "My Water Tracker",
+    "version": "1.0",
+    "description": "Track your daily water intake with ease!",
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icons/icon48.png"
+    },
+    "permissions": [
+      "storage",
+      "alarms",
+      "notifications"
+    ],
+    "optional_permissions": [
+      "tabs"
+    ],
+    "host_permissions": [
+      "https://*.example.com/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+ 
+    },
+    "author": "Your Name",
+    "homepage_url": "https://your-website.com",
+    "offline_enabled": true,
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+  }
+
+  

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Water Tracker</title>
+    <style>
+        body {
+            width: 300px;
+            padding: 15px;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .water-counter {
+            margin: 20px 0;
+            font-size: 24px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Water Tracker</h2>
+        <div class="water-counter">
+            <span id="waterAmount">0</span> ml
+        </div>
+        <button id="addWater">Add 200ml</button>
+        <button id="resetWater">Reset</button>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
