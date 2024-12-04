@@ -1,8 +1,8 @@
 // 设置定时提醒
 chrome.runtime.onInstalled.addListener(() => {
-    // 创建每4小时提醒一次的闹钟
+    // 创建每1分钟提醒一次的闹钟
     chrome.alarms.create('waterReminder', {
-        periodInMinutes: 240 // 4小时
+        periodInMinutes: 1 // 每1分钟提醒一次
     });
 });
 
