@@ -1,24 +1,39 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 加载保存的水量数据
-    chrome.storage.local.get(['waterAmount'], function(result) {
-        document.getElementById('waterAmount').textContent = result.waterAmount || 0;
-    });
+    const addWaterButton = document.getElementById('addWater');
+    const resetWaterButton = document.getElementById('resetWater');
+    const waterAmountDisplay = document.getElementById('waterAmount');
 
-    // 添加水量按钮
-    document.getElementById('addWater').addEventListener('click', function() {
+    // 更新显示的水量
+    function updateWaterAmountDisplay(amount) {
+        waterAmountDisplay.textContent = `今日喝水量: ${amount}ml`;
+    }
+
+    // 获取当前的喝水量
+    function getWaterAmount() {
+        chrome.storage.local.get(['waterAmount'], function(result) {
+            const amount = result.waterAmount || 0;
+            updateWaterAmountDisplay(amount);
+        });
+    }
+
+    // 增加喝水量
+    addWaterButton.addEventListener('click', function() {
         chrome.storage.local.get(['waterAmount'], function(result) {
             const currentAmount = result.waterAmount || 0;
-            const newAmount = currentAmount + 200;
+            const newAmount = currentAmount + 200; // 每次增加200ml
             chrome.storage.local.set({waterAmount: newAmount}, function() {
-                document.getElementById('waterAmount').textContent = newAmount;
+                updateWaterAmountDisplay(newAmount);
             });
         });
     });
 
-    // 重置按钮
-    document.getElementById('resetWater').addEventListener('click', function() {
+    // 重置喝水量
+    resetWaterButton.addEventListener('click', function() {
         chrome.storage.local.set({waterAmount: 0}, function() {
-            document.getElementById('waterAmount').textContent = 0;
+            updateWaterAmountDisplay(0);
         });
     });
-});
+
+    // 初始化时获取当前喝水量
+    getWaterAmount();
+}); 

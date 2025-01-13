@@ -3,31 +3,39 @@
     "name": "My Water Tracker",
     "version": "1.0",
     "description": "Track your daily water intake with ease!",
+    "icons": {
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png",
+        "48": "icons/icon48.png"
+    },
     "action": {
-      "default_popup": "popup.html",
-      "default_icon": "icons/icon48.png"
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "32": "icons/icon32.png",
+            "48": "icons/icon48.png"
+        }
     },
     "permissions": [
-      "storage",
-      "alarms",
-      "notifications"
+        "alarms",
+        "notifications",
+        "storage"
     ],
     "optional_permissions": [
-      "tabs"
+        "tabs"
     ],
     "host_permissions": [
-      "https://*.example.com/*"
+        "https://*.example.com/*"
     ],
     "background": {
-      "service_worker": "background.js"
- 
+        "service_worker": "background.js"
     },
     "author": "Your Name",
     "homepage_url": "https://your-website.com",
     "offline_enabled": true,
     "content_security_policy": {
-      "extension_pages": "script-src 'self'; object-src 'self'"
+        "extension_pages": "script-src 'self'; object-src 'self'"
     }
-  }
+}
 
   
